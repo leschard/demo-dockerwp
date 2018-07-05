@@ -1,5 +1,10 @@
 # Demo path
 
+
+## Build personalized WP image
+
+`docker build -f Dockerfile-wordpress -t wp .`
+
 ## Deploy the stack
 
 `docker stack deploy -c docker-compose.yml wp`

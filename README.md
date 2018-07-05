@@ -12,3 +12,6 @@
 
 `docker service update wp_wordpress --image=wp`
 
+## Kill container in prod
+
+`docker kill <container_id>`

@@ -1,7 +1,7 @@
 
-
+# Readme
 
 
 ## Scaling demo
 
-docker service scale wp_wordpress=6
+`docker service scale wp_wordpress=6`

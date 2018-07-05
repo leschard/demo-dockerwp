@@ -1,0 +1,49 @@
+version: '3.4'
+
+
+volumes:
+  wp_mysql:
+  wp_root:
+
+services:
+
+  wordpress:
+    image: wp
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-wordpress
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: mydb
+      WORDPRESS_DB_USER: wp-user
+      WORDPRESS_DB_PASSWORD: secret
+    volumes:
+      - wp_root:/var/www/html/
+    deploy:
+      replicas: 4
+      restart_policy:
+        condition: any
+      resources:
+        limits:
+          cpus: '1'
+          memory: '500M'
+      update_config:
+        parallelism: 2
+        failure_action: rollback
+        order: start-first
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+
+
+  mydb:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wp-user
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: verysecret
+    volumes:
+      - wp_mysql:/var/lib/mysql/

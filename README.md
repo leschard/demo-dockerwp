@@ -14,6 +14,8 @@
 
 `docker build -f Dockerfile-wordpress -t wp .`
 
+This modified version of the `wordpress` image imports a modified `security.conf` file that prevents the Apache server from including its software version (2.4.x) and the Linux distribution name (Debian) in the `Server` field of the HTTP header.
+
 ## Deploy the stack
 
 `docker stack deploy -c docker-compose.yml wp`

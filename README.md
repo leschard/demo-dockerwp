@@ -7,6 +7,7 @@
 ## Get images
 
 `docker pull wordpress`
+
 `docker pull mysql:5.7`
 
 ## Build personalized WP image

@@ -1,5 +1,11 @@
 # Demo path
 
+## Fetch git content
+
+```bash
+git clone https://github.com/leschard/demo-dockerwp
+```
+
 ## Initialize Docker Swarm
 
 ```bash
@@ -10,9 +16,6 @@ docker swarm init
 
 ```bash
 docker pull wordpress
-```
-
-```bash
 docker pull mysql:5.7
 ```
 

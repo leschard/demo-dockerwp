@@ -8,12 +8,12 @@ volumes:
 services:
 
   wordpress:
-    image: wp
+    image: wordpress
 #    build:
 #      context: .
 #      dockerfile: Dockerfile-wordpress
     ports:
-      - 8080:80
+      - 80:80
     environment:
       WORDPRESS_DB_HOST: mydb
       WORDPRESS_DB_USER: wp-user
